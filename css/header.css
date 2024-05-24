@@ -1,0 +1,314 @@
+/* -------------------- Encabezado principal del documento -------------------- */
+
+header {
+
+    width: 100%;
+
+    padding: 30px 150px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: 0.6s ease;
+
+    z-index: 2;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header .logo {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo a {
+
+    width: 100%;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: .3rem;
+    color: #FBFF2E;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+}
+
+header .logo a:hover {
+    color: #89daa8;
+}
+
+/* -------------------- Barra de navegación -------------------- */
+
+header button {
+    display: none;
+}
+
+header nav {
+    position: relative;
+    /* flex-grow: 3; */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header nav ul li {
+    margin: 10px;
+}
+
+header nav ul li a {
+
+    text-decoration: none;
+
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    color: rgb(250, 235, 215);
+
+    padding-bottom: 5px;
+    margin: 10px;
+
+    transition: 0.3s;
+}
+
+/* header nav ul li a:first-child {
+    color: darkgoldenrod;
+} */
+
+header nav ul li a::before {
+
+    content: "";
+
+    background: #313131bb;
+
+    width: 0;
+    height: 3px;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    transition: width 0.3s ease;
+
+}
+
+header nav ul li a:hover, a.active {
+    color: #FBFF2E;
+}
+
+header nav ul li a:hover::before {
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #313131;
+}
+
+/* Estilos para la opción modo light o dark. */
+
+footer #switch {
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: cadetblue; */
+    border-radius: 50%;
+    border: none;
+    margin: 15px;
+    position: fixed;
+    bottom: 40px;
+    cursor: pointer;
+}
+
+footer #switch i {
+    font-size: 1rem;
+    color: #f4ff00;
+    /* Color neon amarillo */
+    text-shadow: 0px 0px 10px rgba(244, 255, 0, 0.7);
+    /* Sombra neon amarillo */
+
+}
+
+footer #switch i:first-child {
+    color: white;
+    display: none;
+}
+
+footer #switch i:last-child {
+    display: block;
+    background-color: none;
+}
+
+footer #switch.active {
+    background: none;
+}
+
+footer #switch.active i:first-child {
+    display: block;
+}
+
+footer #switch.active i:last-child {
+    display: none;
+}
+
+footer p {
+    text-align: center;
+    background-color: #000;
+    width: 100%;
+    padding: 10px 0;
+}
+
+
+@media screen and (max-width: 1040px) {
+
+    header {
+        padding: 12px 20px;
+    }
+
+    section {
+        padding: 100px 20px;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    /* Creación del botón del menú */
+
+    header button {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        cursor: pointer;
+        width: 3rem;
+        height: 3rem;
+
+        gap: .65rem;
+
+        border: 0;
+        background: transparent;
+        z-index: 1;
+
+    }
+
+    button>div {
+        background: #faf8f8;
+        width: 100%;
+        height: 4px;
+        margin: 0 auto;
+        border-radius: 5px;
+        transition: all .5s;
+        transform-origin: left;
+    }
+
+    /* button div:first-child {
+        width: 99%;
+    }
+
+    button div:nth-child(2) {
+        width: 66%;
+    }
+
+    button div:last-child {
+        width: 33%;
+    } */
+
+    /* Estilos para la animación al hacer clic */
+
+
+    button.active div:first-child {
+        transform: rotate(38deg);
+    }
+
+    button.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    button.active div:last-child {
+        transform: rotate(-38deg);
+    }
+
+
+    header nav.active {
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: rgba(1, 1, 1, 0.5);
+        
+
+    }
+
+    header nav.active ul {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 600px;
+        max-width: 600px;
+
+        background: #fff;
+        backdrop-filter: blur(0.3rem);
+
+        margin: 20px;
+        padding: 40px;
+
+        border-radius: 5px;
+        box-shadow: 0 5px 25px rgba(1, 1, 1, 20%);
+    }
+
+    header nav.active li ul a {
+        color: #313131;
+    }
+
+    header nav ul li a {
+        color: #313131;
+        font-size: 1.2em;
+        margin: 20px;
+    }
+
+    header nav ul li a::before {
+        background: #FBFF2E;
+        height: 5px;
+    }
+
+    header nav ul li a:hover, a.active {
+        color: #656553;
+    }
+    
+
+
+
+
+}

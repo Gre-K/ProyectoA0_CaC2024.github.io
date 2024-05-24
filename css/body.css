@@ -1,0 +1,201 @@
+/* Fuentes */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Fuentes cursivas */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lovely+Coffee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+
+
+/* Declaración de variables */
+
+:root {
+    --color-nav: #0763433e;
+    --color-background: linear-gradient(#D3E9F9, #FFF);
+    --color-title: #fff;
+}
+
+/* Reseteo */
+
+* {
+    /* Resetea el margen predeterminado de todos los elementos. */
+    margin: 0;
+
+    /* Resetea el padding predeterminado de todos los elementos. */
+    padding: 0;
+
+    /* Ajusta el box-sizing para incluir el padding y el borde en el tamaño total de los elementos. */
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+
+    /* Establece la familia de fuentes para todos los elementos a 'Roboto', usando 'sans-serif' como respaldo. */
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+
+    /* Se asegura que el body ocupe todo el ancho y alto de la ventana del navegador. */
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    /* Los elementos dentro del body se posicionarán relativos a él. */
+
+
+    /* Cuando la página se cargue se establecerá un color de fondo oscuro con un color de fuente claro para que contraste bien. */
+
+    background-color: #313131;
+
+    /* Referido a las fuentes. */
+
+    /* Se define un color de texto claro, que contrasta bien con el fondo oscuro dado al cuerpo. */
+
+    color: hsl(34, 78%, 91%);
+    font-size: 16px;
+    /* Se establece el tamaño de fuente base. Todas las demás medidas serán relativas a esta. */
+    font-weight: normal;
+    /* Se define el peso de la fuente. */
+    line-height: 1.5;
+    /* Se asegura una altura de línea que mejora la legibilidad del texto. */
+
+
+    /* Diseño del documento en cuadricula. */
+
+    display: grid;
+    /* Activa el sistema de diseño de cuadrícula. */
+
+    grid-template-columns: repeat(3, 1fr);
+    /* Se crean tres (3) columnas de igual ancho. */
+    /* grid-template-rows: repeat(auto, 1fr);  Se crean siete (7) filas de igual altura. */
+
+    grid-template-areas:
+        "header header header"
+        "header header header"
+        "main main main"
+        "main main main"
+        "main main main"
+        "footer footer footer"
+    ;
+}
+
+/* Definición de las áreas del grid */
+
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+/* Uso de selector combinado para establecer a los siguientes elementos la prodiedad flex, es decir, para que tenga el comportamiento de cajas flexibles. */
+
+header,
+main,
+footer {
+    display: flex;
+}
+
+
+body.active {
+    
+    background-color: #faead6;
+    color: rgb(49, 49, 49);
+    
+    header a {
+        color: hsl(34, 78%, 91%);
+    }
+
+    header div nav ul li a:hover::before {
+        background: antiquewhite;
+    }
+
+    #section-left {
+        background-color: #313131;
+        color: antiquewhite;
+    }
+
+    #section-right h2 {
+        text-shadow: none;
+    }
+
+    footer {
+        color: antiquewhite;
+    }
+}
+
+body.active::before{
+    z-index: -0;
+    content: "";
+    position: absolute;
+    background: rgba(245, 164, 176, 0.2);
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Media Queries */
+
+/* Dispositivos móviles pequeños (menor de 600px) */
+@media (max-width: 600px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "aside"
+            "footer";
+    }
+}
+
+/* Tabletas (601px a 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "aside"
+            "footer";
+    }
+}
+
+/* Pantallas de tamaño mediano (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "header header"
+            "main main"
+            "main main"
+            "aside aside"
+            "footer footer";
+    }
+}
+
+/* Pantallas grandes (mayor de 1024px) */
+@media (min-width: 1025px) {
+    body {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "header header header"
+            "header header header"
+            "main main main"
+            "main main main"
+            "main main main"
+            "aside aside aside"
+            "footer footer footer";
+    }
+}
