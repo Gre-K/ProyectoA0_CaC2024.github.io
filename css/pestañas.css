@@ -1,0 +1,40 @@
+[data-content] {
+    display: none;
+    padding: 1rem;
+}
+
+.activo[data-content] {
+    display: block;
+}
+
+[data-target] {
+    transition: filter 1.5s ease, box-shadow .4s ease;
+    background: transparent;
+}
+
+.actual[data-target] {
+    color: aliceblue;
+    background-color: #ffffff;
+    opacity: .9;
+    position: relative;
+    content: "";
+    background-size: 1400% 1400%;
+    border-radius: 10px;
+    filter: blur(.4px);
+}
+
+.actual[data-target]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, #008080, #00FFFF, #008cff, #008064, #00ffb3, #7FFF00);
+    background-size: 800%;
+    border-radius: 10px;
+    filter: blur(12px);
+    transition: opacity 0.7s ease-in-out;
+    animation: gradient 3s ease infinite;
+}

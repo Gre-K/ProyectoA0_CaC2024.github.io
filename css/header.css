@@ -1,6 +1,7 @@
 /* -------------------- Encabezado principal del documento -------------------- */
 
 header {
+    background-color: rgba(1, 1, 1, 0.7);
 
     width: 100%;
 
@@ -110,6 +111,10 @@ header nav ul li a:hover, a.active {
 
 header nav ul li a:hover::before {
     width: 100%;
+}
+
+#switch {
+    background: radial-gradient(rgba(0, 0, 0, 0.336),  transparent 60%)!important;
 }
 
 footer {

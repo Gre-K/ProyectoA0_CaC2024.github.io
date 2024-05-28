@@ -1,0 +1,15 @@
+.blue {
+    color: rgb(52, 70, 235)!important;
+}
+
+.orange {
+    color: rgba(252, 108, 55, 0.842)!important;
+}
+
+.yellow {
+    color: rgba(255, 238, 0, 0.877)!important;
+}
+
+.back {
+    background-color: aqua;
+}
